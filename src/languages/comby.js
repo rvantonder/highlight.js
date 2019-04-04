@@ -5,17 +5,17 @@ Category: common
 
 function(hljs) {
   return {
-      lexemes: '\\(|\\)|\\[|\\]|\\{|\\}',
-      keywords: '( ) [ ] { }',
       contains: [
           {
               className: 'variable',
-              begin: ':\\[', end: '\\]'
+              begin: ':\\[\\[', end: '\\]\\]'
           },
           {
               className: 'variable',
-              begin: ':\\[\\[', end: '\\]\\]'
+              begin: ':\\[', end: '\\]'
           }
-      ]
+      ],
+      lexemes: '\\(|\\)|\\[|\\]|\\{|\\}',
+      keywords: '( ) [ ] { }'
   };
 }

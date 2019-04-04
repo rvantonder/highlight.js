@@ -5,24 +5,17 @@ Category: common
 
 function(hljs) {
   return {
-      case_insensitive: false,
-      keywords: '( ) [ ] { } doot',
+      lexemes: '\\(|\\)|\\[|\\]|\\{|\\}',
+      keywords: '( ) [ ] { }',
       contains: [
           {
-              className: 'string',
-              begin: '"', end: '"'
+              className: 'variable',
+              begin: ':\\[', end: '\\]'
           },
-          hljs.COMMENT(
-              '/\\*', // begin
-              '\\*/', // end
-              {
-                  contains: [
-                      {
-                          className: 'doc', begin: '@\\w+'
-                      }
-                  ]
-              }
-          )
+          {
+              className: 'variable',
+              begin: ':\\[\\[', end: '\\]\\]'
+          }
       ]
   };
 }
